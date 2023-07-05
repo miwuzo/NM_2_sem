@@ -1,0 +1,85 @@
+a = 1;
+b = 3;
+n1 = 10;
+n2 = 100;
+f1 = @(x) sin(x).*cos(2.*x);
+f2 = @(x) cos(x)./x.*x;
+
+exact1 = integral(f1, a, b);
+exact2 = integral(f2, a, b);
+
+trap1_10 = trapezia(a, b, n1, f1);
+trap1_100 = trapezia(a, b, n2, f1);
+trap2_10 = trapezia(a, b, n1, f2);
+trap2_100 = trapezia(a, b, n2, f2);
+
+rect1_10 = rectangle(a, b, n1, f1);
+rect1_100 = rectangle(a, b, n2, f1);
+rect2_10 = rectangle(a, b, n1, f2);
+rect2_100 = rectangle(a, b, n2, f2);
+
+simp1_10 = simpson(a, b, n1, f1);
+simp1_100 = simpson(a, b, n2, f1);
+simp2_10 = simpson(a, b, n1, f2);
+simp2_100 = simpson(a, b, n2, f2);
+
+trap1_10_tol_abs = abs(exact1 - trap1_10);
+trap1_100_tol_abs = abs(exact1 - trap1_100);
+trap1_10_tol_rel = trap1_100_tol_abs / exact1;
+trap1_100_tol_rel = trap1_100_tol_abs / exact1;
+trap2_10_tol_abs = abs(exact2 - trap2_10);
+trap2_100_tol_abs = abs(exact2 - trap2_100);
+trap2_10_tol_rel = trap2_100_tol_abs / exact2;
+trap2_100_tol_rel = trap2_100_tol_abs / exact2;
+
+rect1_10_tol_abs = abs(exact1 - rect1_10);
+rect1_100_tol_abs = abs(exact1 - rect1_100);
+rect1_10_tol_rel = rect1_100_tol_abs / exact1;
+rect1_100_tol_rel = rect1_100_tol_abs / exact1;
+rect2_10_tol_abs = abs(exact2 - rect2_10);
+rect2_100_tol_abs = abs(exact2 - rect2_100);
+rect2_10_tol_rel = rect2_100_tol_abs / exact2;
+rect2_100_tol_rel = rect2_100_tol_abs / exact2;
+
+simp1_10_tol_abs = abs(exact1 - simp1_10);
+simp1_100_tol_abs = abs(exact1 - simp1_100);
+simp1_10_tol_rel = simp1_100_tol_abs / exact1;
+simp1_100_tol_rel = simp1_100_tol_abs / exact1;
+simp2_10_tol_abs = abs(exact2 - simp2_10);
+simp2_100_tol_abs = abs(exact2 - simp2_100);
+simp2_10_tol_rel = simp2_100_tol_abs / exact2;
+simp2_100_tol_rel = simp2_100_tol_abs / exact2;
+
+function sum = trapezia(a, b, n, f)
+    h = (b - a) / n;
+    
+    x = a;
+    sum = 0;
+    while x < b
+        sum = sum + (f(x) + f(x + h)) / 2 * h;
+        x = x + h;
+    end
+end
+
+function sum = rectangle(a, b, n, f)
+    h = (b - a) / n;
+
+    x = a;
+    sum = 0;
+    while x < b
+        sum = sum + f(x + h/2);
+        x = x + h;
+    end
+    sum = sum * h;
+end
+
+function sum = simpson(a, b, n, f)
+    h = (b - a) / n;
+
+    x = a;
+    sum = 0;
+    while x < b
+        sum = sum + (f(x) + 4*f(x + h) + f(x + 2*h)) * h/3;
+        x = x + 2*h;
+    end
+end

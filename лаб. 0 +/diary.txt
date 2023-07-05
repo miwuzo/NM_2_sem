@@ -1,0 +1,208 @@
+a = 63
+
+a =
+
+    63
+
+b = 37
+
+b =
+
+    37
+
+a + b
+
+ans =
+
+   100
+
+ans + ans
+
+ans =
+
+   200
+
+2^8
+
+ans =
+
+   256
+
+sin(pi/3)
+
+ans =
+
+    0.8660
+
+sin(0.54354)
+
+ans =
+
+    0.5172
+
+5/0
+
+ans =
+
+   Inf
+
+365 * 102,450
+
+ans =
+
+       37230
+
+
+ans =
+
+   450
+
+679 * 106.62
+
+ans =
+
+   7.2395e+04
+
+x = 6 % переменная x
+
+x =
+
+     6
+
+x = sqrt(36)
+
+x =
+
+     6
+
+who
+
+Your variables are:
+
+a     b     m     t     x     
+ans   c     r     temp  
+
+whos
+  Name      Size            Bytes  Class     Attributes
+
+  a         1x1                 8  double              
+  ans       1x1                 8  double              
+  b         1x1                 8  double              
+  c         5x1                40  double              
+  m         3x3                72  double              
+  r         1x5                40  double              
+  t         1x5                40  double              
+  temp      1x1                 8  double              
+  x         1x1                 8  double              
+
+clear
+whos
+r = [2 3 4 5 6]
+
+r =
+
+     2     3     4     5     6
+
+t = [9 8 7 6 5]
+
+t =
+
+     9     8     7     6     5
+
+t + r
+
+ans =
+
+    11    11    11    11    11
+
+c = [6;4;7;8;9]
+
+c =
+
+     6
+     4
+     7
+     8
+     9
+
+m = [1, 2; 3, 4; 5, 6; 7, 8]
+
+m =
+
+     1     2
+     3     4
+     5     6
+     7     8
+
+m.^3
+
+ans =
+
+     1     8
+    27    64
+   125   216
+   343   512
+
+a = 1
+
+a =
+
+     1
+
+b = 2
+
+b =
+
+     2
+
+if a < b
+temp = a
+a = b
+b = temp
+end
+
+temp =
+
+     1
+
+
+a =
+
+     2
+
+
+b =
+
+     1
+
+help
+--- help for <strong>end</strong> ---
+
+ <strong>end</strong> Terminate scope of FOR, WHILE, SWITCH, TRY, and IF statements.
+    Without <strong>end</strong>'s, FOR, WHILE, SWITCH, TRY, and IF wait for further input.
+    Each <strong>end</strong> is paired with the closest previous unpaired FOR, WHILE,
+    SWITCH, TRY or IF and serves to terminate its scope.
+ 
+    <strong>end</strong> also marks the termination of a function, although in
+    most cases it is optional. <strong>end</strong> statements are required only in 
+    MATLAB files that employ one or more nested functions. Within such a
+    file, every function (including primary, nested, private, and 
+    subfunctions) must be terminated with an <strong>end</strong> statement. You can 
+    terminate any function type with <strong>end</strong>, but doing so is not required
+    unless the file contains a nested function.
+ 
+    <strong>end</strong> can also serve as the last index in an indexing expression.  In
+    that context, <strong>end</strong> = SIZE(X,k) when used as part of the k-th index.
+    Examples of this use are, X(3:end) and X(1,1:2:end-1).  When using <strong>end</strong>
+    to grow an array, as in X(end+1) = 5, make sure X exists first.
+ 
+    <strong>end</strong>(A,K,N) is called for indexing expressions involving the object A
+    when <strong>end</strong> is part of the K-th index out of N indices.  For example,
+    the expression A(end-1,:) calls A's <strong>end</strong> method with <strong>end</strong>(A,1,2).
+ 
+    See also <a href="matlab:help for">for</a>, <a href="matlab:help while">while</a>, <a href="matlab:help switch">switch</a>, <a href="matlab:help try">try</a>, <a href="matlab:help if">if</a>.
+
+    <a href="matlab:doc end">Documentation for end</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('end')">Other functions named end</a>
+
+diary off
